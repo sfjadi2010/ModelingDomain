@@ -4,9 +4,9 @@ namespace Domain.Orders;
 
 public class LineItem
 {
-    private LineItem(Guid id, OrderId orderId, ProductId productId, int quantity, Money price)
+    private LineItem(LineItemId lineItemId, OrderId orderId, ProductId productId, int quantity, Money price)
     {
-        Id = id;
+        Id = lineItemId;
         OrderId = orderId;
         ProductId = productId;
         Quantity = quantity;
@@ -20,9 +20,9 @@ public class LineItem
             return null!;
         }
 
-        return new LineItem(Guid.NewGuid(), orderId, productId, quantity, price);
+        return new LineItem(new LineItemId(Guid.NewGuid()), orderId, productId, quantity, price);
     }
-    public Guid Id { get; private set; }
+    public LineItemId Id { get; private set; }
     public OrderId OrderId { get; private set; }
     public ProductId ProductId { get; private set; }
     public int Quantity { get; private set; }
