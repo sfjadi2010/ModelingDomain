@@ -4,6 +4,7 @@ namespace Domain.Orders;
 
 public class LineItem
 {
+    private LineItem() { }
     private LineItem(LineItemId lineItemId, OrderId orderId, ProductId productId, int quantity, Money price)
     {
         Id = lineItemId;

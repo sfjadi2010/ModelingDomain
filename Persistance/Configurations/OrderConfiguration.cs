@@ -24,5 +24,9 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .WithMany()
             .HasForeignKey(o => o.CustomerId)
             .IsRequired();
+
+        builder.HasMany(o => o.LineItems)
+            .WithOne()
+            .HasForeignKey(li => li.OrderId);
     }
 }
